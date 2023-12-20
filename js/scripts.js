@@ -14,8 +14,6 @@ startButton.addEventListener('click', function() {
     console.log(diffSelect.value);
     const cellNumber = parseInt(diffSelect.value);
 
-    gridContainer.innerHTML = '';
-
     //genera 16 numeri casuali con numero max = difficolta gioco
     const numeriBombe = [];
     while (numeriBombe.length < 16) {
@@ -44,6 +42,7 @@ startButton.addEventListener('click', function() {
 
             if(numeriBombe.includes(numeroCella)) {
                 this.classList.add('bomb');
+                resetLoss(punti, cell)
             } else {
                 this.classList.add('clicked');
                 punti++;
@@ -54,8 +53,27 @@ startButton.addEventListener('click', function() {
 
         gridContainer.append(cell);
     }
+
+    if (punti == (cellNumber - 16)){
+        resetWin(punti, cell);
+    }
 })
 
 function numRandom(min, max) {
     return Math.floor(Math.random () * (max - min + 1))  + min;
+}
+
+
+function resetWin(counter, grid) {
+    
+    alert('hai vinto, il tuo punteggio è ' + counter);
+    grid.innerHTML = '';
+
+} 
+
+function resetLoss(counter, grid) {
+
+    alert('Hai perso, il tuo punteggio è ' + counter);
+    grid.innerHTML = '';
+
 }
