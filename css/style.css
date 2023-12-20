@@ -59,8 +59,14 @@ header {
     line-height: calc(1000px / 7);
 }
 
-.grid-container > .cell.active {
+.grid-container > .cell.clicked {
     border-color: aquamarine;
     color: aquamarine;
-    background-color: lightcoral;
+    background-color: lawngreen;
+}
+
+.grid-container > .cell.bomb {
+    border-color: aquamarine;
+    color: aquamarine;
+    background-color: crimson;
 }
